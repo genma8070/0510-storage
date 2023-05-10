@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>LocalStorage</h2>
+    <h2>SessionStorage</h2>
+    <div class="inputArea">
+        <div class="account">
+            <label for="account">Account</label>
+            <input id="account" type="text">
+        </div>
+        <div class="password">
+            <label for="password">Password</label>
+            <input id="password" type="password">
+        </div>
+    </div>
+    <button id="btn" type="button">set</button>
+    <button id="show" type="button">get</button>
+    <p id="ac">123</p>
+    <p id="ps">123</p>
+</body>
+
+</html>
+<script>
+
+    const btn = document.querySelector("#btn");
+    const show = document.querySelector("#show");
+    const account = document.querySelector("#account");
+    const password = document.querySelector("#password");
+    const ac = document.querySelector("#ac");
+    const ps = document.querySelector("#ps");
+
+    btn.addEventListener("click",function(){
+        const acc = account.value;
+        const psw = password.value;
+
+        sessionStorage.setItem("account", acc);
+        sessionStorage.setItem("password", psw)
+
+        console.log(acc)
+        console.log(psw)
+    })
+
+    show.addEventListener("click",function(){
+        const getAccount = sessionStorage.getItem("account");
+        const getPassword = sessionStorage.getItem("password")
+        
+        
+        ac.innerText = getAccount
+        ps.innerText = getPassword
+    })
+</script>
